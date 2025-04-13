@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 
 import { Chart } from "react-google-charts";
+import HomepageCarousel from './components/carousel/carousel.component';
+import MainNavbar from './components/navbar/navbar.component';
 
 
 function App() {
@@ -28,16 +30,28 @@ function App() {
 
   return (
     <>
-      <Chart
-        // Try different chart types by changing this property with one of: LineChart, BarChart, AreaChart...
-        chartType="PieChart"
-        data={chartData}
-        options={{
-          title: "Average Weight by Age",
-        }}
-        height={350}
-        legendToggle
-      />
+      <MainNavbar />
+      <HomepageCarousel />
+      <div className='container'>
+        <div className='row'>
+          <div className='col'>
+            <Chart
+              // Try different chart types by changing this property with one of: LineChart, BarChart, AreaChart...
+              chartType="PieChart"
+              data={chartData}
+              options={{
+                title: "Average Weight by Age",
+              }}
+              height={350}
+              legendToggle
+            />
+          </div>
+          <div className='col'>
+            Col 2
+          </div>
+        </div>
+      </div>
+
     </>
   )
 }
